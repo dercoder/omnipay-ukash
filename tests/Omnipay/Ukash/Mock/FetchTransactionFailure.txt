@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: Apache
+Content-Type: text/xml;charset=UTF-8
+Date: Fri, 07 Feb 2014 13:58:41 GMT
+Connection: Keep-Alive
+
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="https://processing.ukash.com/hosted/">&lt;UKashRPP&gt;&lt;SecurityToken&gt;R2345678901234567890&lt;/SecurityToken&gt;&lt;UTID&gt;1LB8a1WWBQQ35Pa8SEST&lt;/UTID&gt;&lt;TransactionCode&gt;99&lt;/TransactionCode&gt;&lt;TransactionDesc&gt;Failure&lt;/TransactionDesc&gt;&lt;MerchantTransactionID&gt;&lt;/MerchantTransactionID&gt;&lt;SettleAmount&gt;&lt;/SettleAmount&gt;&lt;MerchantCurrency&gt;&lt;/MerchantCurrency&gt;&lt;UkashTransactionID&gt;&lt;/UkashTransactionID&gt;&lt;errCode&gt;223&lt;/errCode&gt;&lt;errDescription&gt;No transaction found&lt;/errDescription&gt;&lt;/UKashRPP&gt;</string>

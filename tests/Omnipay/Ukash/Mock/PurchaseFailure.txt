@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: Apache
+Content-Type: text/xml;charset=UTF-8
+Date: Fri, 07 Feb 2014 13:58:41 GMT
+Connection: Keep-Alive
+
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="https://processing.ukash.com/hosted/">&lt;UKashRPP&gt;&lt;SecurityToken&gt;&lt;/SecurityToken&gt;&lt;UTID&gt;&lt;/UTID&gt;&lt;errCode&gt;203&lt;/errCode&gt;&lt;errDescription&gt;Could not load RPP Config for BrandID&lt;/errDescription&gt;&lt;/UKashRPP&gt;</string>

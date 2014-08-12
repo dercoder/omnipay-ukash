@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: Apache
+Content-Type: text/xml;charset=UTF-8
+Date: Fri, 07 Feb 2014 13:58:41 GMT
+Connection: Keep-Alive
+
+<?xml version="1.0" encoding="UTF-8"?>
+<UKashRPP>
+  <SecurityToken>R2345678901234567890</SecurityToken>
+  <UTID>2a3K8554MRG1Q6BPSEST</UTID>
+  <errCode>0</errCode>
+  <errDescription></errDescription>
+</UKashRPP>

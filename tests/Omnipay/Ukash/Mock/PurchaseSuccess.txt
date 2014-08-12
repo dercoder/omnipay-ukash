@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: Apache
+Content-Type: text/xml;charset=UTF-8
+Date: Fri, 07 Feb 2014 13:58:41 GMT
+Connection: Keep-Alive
+
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="https://processing.ukash.com/hosted/">&lt;UKashRPP&gt;&lt;SecurityToken&gt;R2345678901234567890&lt;/SecurityToken&gt;&lt;UTID&gt;3W7B46B346B4G541D039&lt;/UTID&gt;&lt;errCode&gt;0&lt;/errCode&gt;&lt;errDescription&gt;&lt;/errDescription&gt;&lt;/UKashRPP&gt;</string>
