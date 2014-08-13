@@ -3,8 +3,6 @@
 **Ukash driver for the Omnipay PHP payment processing library**
 
 [![Build Status](https://travis-ci.org/dercoder/omnipay-ukash.png?branch=master)](https://travis-ci.org/dercoder/omnipay-ukash)
-[![Coverage Status](https://coveralls.io/repos/dercoder/omnipay-ukash/badge.png?branch=master)](https://coveralls.io/r/dercoder/omnipay-ukash?branch=master)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/dercoder/omnipay-ukash/badges/quality-score.png?s=dcf9b443507469bb5f65fb6dbeb2f2d3d39c3eeb)](https://scrutinizer-ci.com/g/dercoder/omnipay-ukash/)
 [![Dependency Status](https://www.versioneye.com/user/projects/52e8db95ec13757beb00000c/badge.png)](https://www.versioneye.com/user/projects/52e8db95ec13757beb00000c)
 
 [![Latest Stable Version](https://poser.pugx.org/dercoder/omnipay-ukash/v/stable.png)](https://packagist.org/packages/dercoder/omnipay-ukash)
