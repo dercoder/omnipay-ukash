@@ -13,15 +13,14 @@ use SimpleXMLElement;
  */
 class Response extends \Omnipay\Common\Message\AbstractResponse
 {
-
     protected $liveEndpoint = 'https://direct.ukash.com/';
     protected $testEndpoint = 'https://direct.staging.ukash.com/';
 
     /**
      * Constructor
      *
-     * @param  object $request request
-     * @param  string $data data
+     * @param object $request request
+     * @param string $data    data
      */
     public function __construct($request, $data)
     {
@@ -75,6 +74,10 @@ class Response extends \Omnipay\Common\Message\AbstractResponse
             return 'SecurityToken does not match. Please verify your settings';
         }
 
+        if (isset($this->data->TransactionDesc)) {
+            return (string) $this->data->TransactionDesc;
+        }
+
         return '';
     }
 
@@ -105,7 +108,8 @@ class Response extends \Omnipay\Common\Message\AbstractResponse
      * Transaction status/return code.
      * It determines whether the voucher was successfully redeemed or not.
      * A “0” means that the voucher was successfully redeemed.
-     * Any other code will reflect an unsuccessful redemption due to an invalid voucher or an error.
+     * Any other code will reflect an unsuccessful redemption due to an
+     * invalid voucher or an error.
      *
      * 0 => Accepted
      * Redemption successful
@@ -114,7 +118,8 @@ class Response extends \Omnipay\Common\Message\AbstractResponse
      * Redemption unsuccessful
      *
      * 99 => Failed
-     * An error occurred during the processing of the transaction hence the system could not successfully complete the redemption of the voucher.
+     * An error occurred during the processing of the transaction hence the system
+     * could not successfully complete the redemption of the voucher.
      * Will also be returned if an invalid voucher number was supplied.
      *
      * @return string transaction code
@@ -168,5 +173,4 @@ class Response extends \Omnipay\Common\Message\AbstractResponse
     {
         return $this->getRequest()->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }
-
 }
