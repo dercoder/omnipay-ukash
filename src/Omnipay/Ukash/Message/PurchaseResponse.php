@@ -43,5 +43,4 @@ class PurchaseResponse extends Response implements \Omnipay\Common\Message\Redir
     {
         return null;
     }
-
 }

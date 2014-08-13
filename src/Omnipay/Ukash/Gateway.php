@@ -133,5 +133,4 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Ukash\Message\FetchTransactionRequest', $parameters);
     }
-
 }

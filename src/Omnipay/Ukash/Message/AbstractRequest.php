@@ -139,5 +139,4 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
         return $httpResponse->getBody(true);
     }
-
 }

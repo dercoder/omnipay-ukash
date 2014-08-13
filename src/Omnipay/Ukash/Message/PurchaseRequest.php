@@ -1,8 +1,6 @@
 <?php
 namespace Omnipay\Ukash\Message;
 
-use SimpleXMLElement;
-
 /**
  * Ukash Request for UTID
  *
@@ -202,13 +200,13 @@ class PurchaseRequest extends AbstractRequest
     /**
      * Send the request with specified data
      *
-     * @param  mixed             $data The data to send
+     * @param  mixed            $data The data to send
      * @return PurchaseResponse
      */
     public function sendData($data)
     {
         $response = $this->sendRequest('POST', 'RPPGateway/process.asmx/GetUniqueTransactionID', $data);
+
         return new PurchaseResponse($this, $response);
     }
-
 }

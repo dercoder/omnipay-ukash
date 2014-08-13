@@ -6,10 +6,14 @@ namespace Omnipay\Ukash\Message;
  *
  * The merchant can verify the transaction status by making a HTTP POST Request to the Transaction status web method.
  * The method will return a string value containing a URL encoded XML string. The XML tags returned are listed below.
+ *
+ * @author Alexander Fedra <contact@dercoder.at>
+ * @copyright 2014 DerCoder
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ * @version 1.0.0
  */
 class FetchTransactionRequest extends AbstractRequest
 {
-
     /**
      * Get the Response Security Token
      *
@@ -64,7 +68,7 @@ class FetchTransactionRequest extends AbstractRequest
     public function sendData($data)
     {
         $response = $this->sendRequest('POST', 'RPPGateway/process.asmx/GetTransactionStatus', $data);
+
         return new FetchTransactionResponse($this, $response);
     }
-
 }

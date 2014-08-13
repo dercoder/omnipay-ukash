@@ -11,7 +11,6 @@ namespace Omnipay\Ukash\Message;
  */
 class FetchTransactionResponse extends Response
 {
-
     /**
      * Get the total amount of the transfer as it was requested.
      *
@@ -39,7 +38,8 @@ class FetchTransactionResponse extends Response
      * Transaction status/return code.
      * It determines whether the voucher was successfully redeemed or not.
      * A “0” means that the voucher was successfully redeemed.
-     * Any other code will reflect an unsuccessful redemption due to an invalid voucher or an error.
+     * Any other code will reflect an unsuccessful redemption due to an
+     * invalid voucher or an error.
      *
      * 0 => Accepted
      * Redemption successful
@@ -48,7 +48,8 @@ class FetchTransactionResponse extends Response
      * Redemption unsuccessful
      *
      * 99 => Failed
-     * An error occurred during the processing of the transaction hence the system could not successfully complete the redemption of the voucher.
+     * An error occurred during the processing of the transaction hence the system
+     * could not successfully complete the redemption of the voucher.
      * Will also be returned if an invalid voucher number was supplied.
      *
      * @return string transaction code
@@ -77,5 +78,4 @@ class FetchTransactionResponse extends Response
     {
         return (string) $this->data->UTID;
     }
-
 }
