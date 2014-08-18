@@ -21,7 +21,7 @@ class FetchTransactionResponseTest extends TestCase
     public function testSuccess()
     {
         $httpResponse = $this->getMockHttpResponse('FetchTransactionSuccess.txt');
-        $response = new PurchaseResponse($this->getMockRequest(), $httpResponse->getBody(true));
+        $response = new FetchTransactionResponse($this->getMockRequest(), $httpResponse->getBody(true));
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame(0, $response->getCode());
