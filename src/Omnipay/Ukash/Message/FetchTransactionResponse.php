@@ -56,7 +56,7 @@ class FetchTransactionResponse extends Response
      */
     public function getTransactionCode()
     {
-        return (int) $this->data->TransactionCode;
+        return isset($this->data->TransactionCode) ? (int) $this->data->TransactionCode : null;
     }
 
     /**
@@ -66,16 +66,6 @@ class FetchTransactionResponse extends Response
      */
     public function getTransactionDesc()
     {
-        return (string) $this->data->TransactionDesc;
-    }
-
-    /**
-     * Get the unique ID that identifies the transaction in the Ukash system.
-     *
-     * @return string transaction reference
-     */
-    public function getTransactionReference()
-    {
-        return (string) $this->data->UTID;
+        return isset($this->data->TransactionDesc) ? (string) $this->data->TransactionDesc : null;
     }
 }
