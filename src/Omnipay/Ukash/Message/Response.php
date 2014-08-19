@@ -36,11 +36,11 @@ class Response extends \Omnipay\Common\Message\AbstractResponse
      */
     public function isSuccessful()
     {
-        if ($this->data->errCode !== '0') {
+        if ($this->data->errCode != '0') {
             return false;
         } elseif (!isset($this->data->TransactionCode)) {
             return false;
-        } elseif ($this->data->TransactionCode !== '0') {
+        } elseif ($this->data->TransactionCode != '0') {
             return false;
         } elseif ($this->data->SecurityToken != $this->getRequest()->getResponseSecurityToken()) {
             return false;
