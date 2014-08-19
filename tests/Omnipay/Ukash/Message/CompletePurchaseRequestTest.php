@@ -3,7 +3,7 @@ namespace Omnipay\Ukash\Message;
 
 use Omnipay\Tests\TestCase;
 
-class FetchTransactionRequestTest extends TestCase
+class CompletePurchaseRequestTest extends TestCase
 {
     /**
      * @var FetchTransactionRequestTest
@@ -13,7 +13,7 @@ class FetchTransactionRequestTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->request = new FetchTransactionRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request = new CompletePurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
     }
 
     public function testGetData()

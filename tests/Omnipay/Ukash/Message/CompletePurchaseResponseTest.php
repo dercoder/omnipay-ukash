@@ -1,14 +1,16 @@
 <?php
 namespace Omnipay\Ukash\Message;
 
+use SimpleXMLElement;
 use Omnipay\Tests\TestCase;
 
-class FetchTransactionResponseTest extends TestCase
+class CompletePurchaseResponseTest extends TestCase
 {
     public function testFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('FetchTransactionFailure.txt');
-        $response = new FetchTransactionResponse($this->getMockRequest(), $httpResponse->getBody(true));
+        $httpResponse = $this->getMockHttpResponse('CompletePurchaseFailure.txt');
+        $xmlResponse = new SimpleXMLElement(htmlspecialchars_decode($httpResponse->getBody(true)), LIBXML_NONET);
+        $response = new Response($this->getMockRequest(), $xmlResponse->UKashRPP);
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame(223, $response->getCode());
@@ -20,10 +22,11 @@ class FetchTransactionResponseTest extends TestCase
 
     public function testSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('FetchTransactionSuccess.txt');
-        $response = new FetchTransactionResponse($this->getMockRequest(), $httpResponse->getBody(true));
+        $httpResponse = $this->getMockHttpResponse('CompletePurchaseSuccess.txt');
+        $xmlResponse = new SimpleXMLElement(htmlspecialchars_decode($httpResponse->getBody(true)), LIBXML_NONET);
+        $response = new Response($this->getMockRequest(), $xmlResponse->UKashRPP);
 
-        $this->assertFalse($response->isSuccessful());
+        $this->assertTrue($response->isSuccessful());
         $this->assertSame(0, $response->getCode());
         $this->assertNotNull($response->getMessage());
 

@@ -1,6 +1,7 @@
 <?php
 namespace Omnipay\Ukash\Message;
 
+use SimpleXMLElement;
 use Omnipay\Tests\TestCase;
 
 class PurchaseResponseTest extends TestCase
@@ -8,7 +9,8 @@ class PurchaseResponseTest extends TestCase
     public function testFailure()
     {
         $httpResponse = $this->getMockHttpResponse('PurchaseFailure.txt');
-        $response = new PurchaseResponse($this->getMockRequest(), $httpResponse->getBody(true));
+        $xmlResponse = new SimpleXMLElement(htmlspecialchars_decode($httpResponse->getBody(true)), LIBXML_NONET);
+        $response = new Response($this->getMockRequest(), $xmlResponse->UKashRPP);
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame(203, $response->getCode());
@@ -18,7 +20,8 @@ class PurchaseResponseTest extends TestCase
     public function testSuccess()
     {
         $httpResponse = $this->getMockHttpResponse('PurchaseSuccess.txt');
-        $response = new PurchaseResponse($this->getMockRequest(), $httpResponse->getBody(true));
+        $xmlResponse = new SimpleXMLElement(htmlspecialchars_decode($httpResponse->getBody(true)), LIBXML_NONET);
+        $response = new Response($this->getMockRequest(), $xmlResponse->UKashRPP);
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame(0, $response->getCode());

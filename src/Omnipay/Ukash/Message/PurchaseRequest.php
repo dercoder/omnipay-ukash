@@ -207,6 +207,6 @@ class PurchaseRequest extends AbstractRequest
     {
         $response = $this->sendRequest('POST', 'RPPGateway/process.asmx/GetUniqueTransactionID', $data);
 
-        return new PurchaseResponse($this, $response);
+        return new Response($this, $response);
     }
 }

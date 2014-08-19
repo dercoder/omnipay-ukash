@@ -131,6 +131,6 @@ class Gateway extends AbstractGateway
 
     public function fetchTransaction(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Ukash\Message\FetchTransactionRequest', $parameters);
+        return $this->createRequest('\Omnipay\Ukash\Message\CompletePurchaseRequest', $parameters);
     }
 }

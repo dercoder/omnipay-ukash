@@ -1,6 +1,9 @@
 <?php
 namespace Omnipay\Ukash\Message;
 
+use SimpleXMLElement;
+use Omnipay\Common\Exception\InvalidResponseException;
+
 /**
  * Ukash Abstract Request
  *
@@ -137,6 +140,20 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $httpRequest = $this->httpClient->createRequest($method, $this->getEndpoint().$action, null, $data);
         $httpResponse = $httpRequest->send();
 
-        return $httpResponse->getBody(true);
+        $xml = new SimpleXMLElement(htmlspecialchars_decode($httpResponse->getBody(true)), LIBXML_NONET);
+
+        if (isset($xml->UKashRPP)) {
+            throw new InvalidResponseException('Missing "UKashRPP" element in XML response');
+        }
+
+        if (!isset($xml->UKashRPP->SecurityToken)) {
+            throw new InvalidResponseException('Missing "UKashRPP/SecurityToken" element in XML response');
+        }
+
+        if ($xml->UKashRPP->SecurityToken != $this->getResponseSecurityToken()) {
+            throw new InvalidResponseException('Invalid SecurityToken in XML response');
+        }
+
+        return $xml->UKashRPP;
     }
 }
