@@ -142,7 +142,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
         $xml = new SimpleXMLElement(htmlspecialchars_decode($httpResponse->getBody(true)), LIBXML_NONET);
 
-        if (isset($xml->UKashRPP)) {
+        if (!isset($xml->UKashRPP)) {
             throw new InvalidResponseException('Missing "UKashRPP" element in XML response');
         }
 
