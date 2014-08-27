@@ -69,6 +69,6 @@ class CompletePurchaseRequest extends AbstractRequest
     {
         $response = $this->sendRequest('POST', 'RPPGateway/process.asmx/GetTransactionStatus', $data);
 
-        return new FetchTransactionResponse($this, $response);
+        return new Response($this, $response);
     }
 }
